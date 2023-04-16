@@ -55,7 +55,7 @@ const Home = () => {
       const foundUser = JSON.parse(p);
       id_now = foundUser.polygon_id;
     }
-    let s1 = "http://localhost:5000/api/user/localcrops";
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/localcrops`;
     const requestOptions = {
       method: "post",
       url: s1,
@@ -110,7 +110,7 @@ const Home = () => {
       id_now = foundUser.polygon_id;
     }
     // console.log(polygon_id);
-    let s1 = "http://localhost:5000/api/user/farmer";
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/farmer`;
     let requestOptions = {
       method: "post",
       url: s1,
@@ -133,7 +133,7 @@ const Home = () => {
     }
     setYou(1);
 
-    s1 = "http://localhost:5000/api/user/options";
+    s1 = `${process.env.REACT_APP_BACKEND}/user/options`;
     requestOptions = {
       method: "post",
       url: s1,
@@ -157,7 +157,7 @@ const Home = () => {
       console.log(err);
     }
 
-    s1 = "http://localhost:5000/api/user/latitudes";
+    s1 = `${process.env.REACT_APP_BACKEND}/user/latitudes`;
     requestOptions = {
       method: "post",
       url: s1,

@@ -20,7 +20,7 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
   const [showOptions, setOptions3] = useState([]);
   // const { options2, setOptions2 } = useGlobalContext();
   const fetchData = async () => {
-    let s1 = "http://localhost:5000/api/user/crops";
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/crops`;
     const loggedInUser = localStorage.getItem("user");
     var accesstoken;
     if (loggedInUser) {
@@ -56,7 +56,7 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
       const foundUser = JSON.parse(loggedInUser);
       accesstoken = foundUser.token;
     }
-    let s1 = "http://localhost:5000/api/user/options";
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/options`;
     const requestOptions = {
       method: "post",
       url: s1,

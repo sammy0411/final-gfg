@@ -47,7 +47,7 @@ const Sign = (props) => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/user",
+        `${process.env.REACT_APP_BACKEND}/user`,
         { name, email, password, lat, lon, address },
         config
       );

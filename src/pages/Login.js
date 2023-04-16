@@ -32,7 +32,7 @@ const Login = (props) => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/user/login",
+        `${process.env.REACT_APP_BACKEND}/user/login`,
         { email, password },
         config
       );

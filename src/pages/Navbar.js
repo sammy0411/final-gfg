@@ -59,7 +59,7 @@ function Component({ profile, setProfile, ...props }) {
         };
 
         const { data } = await axios.get(
-          `http://localhost:5000/api/user/profile/${glob_name}`,
+          `${process.env.REACT_APP_BACKEND}/user/profile/${glob_name}`,
           config
         );
         console.log(data);

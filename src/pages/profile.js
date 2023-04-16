@@ -38,7 +38,7 @@ function Profile() {
       myEmail = foundUser.email;
     }
     // console.log()
-    let s1 = `http://localhost:5000/api/user/accept`;
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/accept`;
     console.log(polygon_id);
     let requestOptions = {
       method: "post",
@@ -68,7 +68,7 @@ function Profile() {
       accesstoken = foundUser.token;
       myEmail = foundUser.email;
     }
-    let s1 = `http://localhost:5000/api/user/decline`;
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/decline`;
     console.log(polygon_id);
     let requestOptions = {
       method: "post",
@@ -100,7 +100,7 @@ function Profile() {
     }
     setLoading(1);
     console.log(friend_email);
-    let s1 = `http://localhost:5000/api/user/friendRequest`;
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/friendRequest`;
     // console.log(polygon_id);
     let requestOptions = {
       method: "post",
@@ -123,7 +123,7 @@ function Profile() {
     }
     // api call for sending request
 
-    let pendingLink = `http://localhost:5000/api/user/pending`;
+    let pendingLink = `${process.env.REACT_APP_BACKEND}/user/pending`;
     // console.log(polygon_id);
     requestOptions = {
       method: "post",
@@ -164,7 +164,7 @@ function Profile() {
       id_now = foundUser.polygon_id;
     }
     console.log(id_now);
-    let s1 = `http://localhost:5000/api/user/friends`;
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/friends`;
     console.log(polygon_id);
     let requestOptions = {
       method: "post",
@@ -186,7 +186,7 @@ function Profile() {
       console.log(err);
     }
 
-    let pendingLink = `http://localhost:5000/api/user/pending`;
+    let pendingLink = `${process.env.REACT_APP_BACKEND}/user/pending`;
     // console.log(polygon_id);
     requestOptions = {
       method: "post",
@@ -212,7 +212,7 @@ function Profile() {
     }
 
     // api for notif list
-    let notifLink = `http://localhost:5000/api/user/notif`;
+    let notifLink = `${process.env.REACT_APP_BACKEND}/user/notif`;
     // console.log(polygon_id);
     requestOptions = {
       method: "post",
@@ -239,7 +239,7 @@ function Profile() {
       console.log(err);
     }
 
-    let acceptLink = `http://localhost:5000/api/user/acceptList`;
+    let acceptLink = `${process.env.REACT_APP_BACKEND}/user/acceptList`;
     // console.log(polygon_id);
     requestOptions = {
       method: "post",

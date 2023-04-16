@@ -13,7 +13,7 @@ function Forms(props) {
   const { polygon_id } = useGlobalContext();
   console.log(props);
   const fetchData = async () => {
-    // const data = await axios.get("http://localhost:5000/api");
+    // const data = await axios.get("${process.env.REACT_APP_BACKEND}");
     // // running two server simulatenously and getting data
     // console.log(data);
 

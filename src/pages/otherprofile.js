@@ -34,7 +34,7 @@ function Profile() {
       };
       // console.log(name2);
       const { data } = await axios.get(
-        `http://localhost:5000/api/user/profile/${name2}`
+        `${process.env.REACT_APP_BACKEND}/user/profile/${name2}`
       );
 
       setLoading(false);
@@ -44,7 +44,7 @@ function Profile() {
       setLoading(false);
     }
 
-    let acceptLink = `http://localhost:5000/api/user/acceptList`;
+    let acceptLink = `${process.env.REACT_APP_BACKEND}/user/acceptList`;
     // console.log(polygon_id);
     let requestOptions = {
       method: "post",

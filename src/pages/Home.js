@@ -89,7 +89,7 @@ const Home = () => {
         email = foundUser.email;
       }
       try {
-        let s2 = "http://localhost:5000/api/user/address";
+        let s2 = `${process.env.REACT_APP_BACKEND}/user/address`;
         const requestOptions = {
           headers: { "Content-Type": "application/json" },
           Authorization: `Bearer ${accesstoken}`,
@@ -116,7 +116,7 @@ const Home = () => {
           setLon(d.data.results[0].position.lon);
           // call an api to update the lat and lon of the user
           try {
-            let s2 = "http://localhost:5000/api/user/location";
+            let s2 = `${process.env.REACT_APP_BACKEND}/user/location`;
             console.log(s2, lat_now, lon_now);
             const d2 = await axios.post(
               s2,
@@ -167,7 +167,7 @@ const Home = () => {
     }
     // second api call
     console.log("I'm searching for a polygon");
-    let s1 = "http://localhost:5000/api/user/polygon";
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/polygon`;
     let requestOptions = {
       method: "post",
       url: s1,
@@ -218,7 +218,7 @@ const Home = () => {
     if (p) {
       console.log("api request");
 
-      let s2 = "http://localhost:5000/api/user/polygonData";
+      let s2 = `${process.env.REACT_APP_BACKEND}/user/polygonData`;
       console.log("Polygon creation");
 
       console.log(id);
