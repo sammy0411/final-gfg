@@ -53,31 +53,40 @@ const Home = () => {
         email = foundUser.email;
       }
     if (!email) {
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          function success(position) {
-            setLat(position.coords.latitude);
-            setLon(position.coords.longitude);
+      // if ("geolocation" in navigator) {
+      //   navigator.geolocation.getCurrentPosition(
+      //     function success(position) {
+      //       setLat(position.coords.latitude);
+      //       setLon(position.coords.longitude);
+      //       localStorage.setItem(
+      //         "latitudes",
+      //         JSON.stringify({
+      //           lat: position.coords.latitude,
+      //           lon: position.coords.longitude,
+      //         })
+      //       );
+      //       setRem(1);
+      //     },
+
+      //     function error(error_message) {
+      //       console.error(
+      //         "An error has occured while retrieving location",
+      //         error_message
+      //       );
+      //     }
+      //   );
+      // } else {
+      //   console.log("geolocation is not enabled on this browser");
+      // }
+      setLat(25.5908);
+            setLon(85.1348);
             localStorage.setItem(
               "latitudes",
               JSON.stringify({
-                lat: position.coords.latitude,
-                lon: position.coords.longitude,
+                lat: 25.5908,
+                lon: 85.1348,
               })
             );
-            setRem(1);
-          },
-
-          function error(error_message) {
-            console.error(
-              "An error has occured while retrieving location",
-              error_message
-            );
-          }
-        );
-      } else {
-        console.log("geolocation is not enabled on this browser");
-      }
     } else {
       const loggedInUser = localStorage.getItem("user");
       // var accesstoken;
