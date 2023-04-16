@@ -185,6 +185,7 @@ const Home = () => {
       console.log("found locations", d.data);
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   };
   const fetchLocations = async () => {
