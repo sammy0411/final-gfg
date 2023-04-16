@@ -2,7 +2,7 @@
 
 const AsyncHandler = require("express-async-handler");
 const user = require("../models/model1.js");
-const generateToken = require("../config/generatetoken.js");
+const generateToken = require("../config/generateToken.js");
 const polygon = require("../models/model2.js");
 const cropsconsider = require("../models/model3.js");
 const friendsconsider = require("../models/model4.js");
