@@ -384,6 +384,7 @@ const Home = () => {
         {typeof farmers === "object"
           ? farmers.map((curr_val, curr_idx, arr) => {
               console.log(curr_val);
+              if (curr_val === null) return;
               console.log(parseFloat(curr_val.Lat), parseFloat(curr_val.Lon));
               let f1 = parseFloat(curr_val.Lat);
               let f2 = parseFloat(curr_val.Lon);
