@@ -560,6 +560,19 @@ const declineList = AsyncHandler(async (req, res) => {
     console.log(err);
   }
 });
+
+const deleteUser = AsyncHandler(async (req, res) => {
+  const { email } = req.body;
+  // delete the request
+  try {
+    await user.deleteOne({ Email: email });
+    // because let's say i got the request now I wish to delete
+    res.json("Success deletion");
+  } catch (err) {
+    console.log(err);
+    res.json("Failed");
+  }
+});
 module.exports = {
   registerUser,
   authUser,
@@ -580,6 +593,7 @@ module.exports = {
   AcceptUser,
   acceptList,
   declineList,
+  deleteUser,
 };
 
 // Request must be in lower case while the schema is in upper case
