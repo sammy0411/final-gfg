@@ -18,14 +18,6 @@ function Component({ profile, setProfile, ...props }) {
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive_nav");
   };
-  // console.log(name, name2);
-  // if (name) {
-  //   t1 = name;
-  //   t2 = email;
-  // } else if (name2) {
-  //   t1 = name2;
-  //   t2 = email2;
-  // }
 
   const clickHandler = async () => {
     if (!t1) return;
@@ -35,7 +27,14 @@ function Component({ profile, setProfile, ...props }) {
       setLoading(1);
       var accesstoken;
       const loggedInUser = localStorage.getItem("user");
-
+      if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser);
+        accesstoken = foundUser.token;
+        setName(foundUser.name);
+        setEmail(foundUser.email);
+        t1 = foundUser.name;
+        t2 = foundUser.email;
+      }
       console.log("I got clicked");
       // setLoading(true);
       setProfile(0);
@@ -109,7 +108,7 @@ function Component({ profile, setProfile, ...props }) {
             onClick={clickHandler}
           >
             {" "}
-            {name} {email}
+            {t1} {t2}
           </span>
           <span style={{ color: "red", fontSize: "10px" }}>
             {" "}
