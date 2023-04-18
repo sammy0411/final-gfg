@@ -169,24 +169,44 @@ const Home = () => {
     val = JSON.stringify({
       polygon_id: id_now,
     });
-    console.log("The value is ", val);
-    try {
-      const d = await axios.post(s1, val, requestOptions);
-      console.log("Locations", d);
-      setLat1(d.data.lat1);
-      setLat2(d.data.lat2);
-      setLat3(d.data.lat3);
-      setLat4(d.data.lat4);
-      setLon1(d.data.lon1);
-      setLon2(d.data.lon2);
-      setLon3(d.data.lon3);
-      setLon4(d.data.lon4);
-      setLoading(false);
-      console.log("found locations", d.data);
-    } catch (err) {
-      console.log(err);
-      setLoading(false);
+    let lat_now, lon_now;
+    const location = localStorage.getItem("latitudes");
+    if (location) {
+      const foundLocation = JSON.parse(location);
+      // console.log(foundLocation);
+      lat_now = foundLocation.lat;
+      setLat(foundLocation.lat);
+      lon_now = foundLocation.lon;
+      setLon(foundLocation.lon);
+      // asyn function detected
     }
+    let lat1, lon1, lat2, lon2, lat3, lon3, lat4, lon4;
+    let a = Math.sqrt((1500 * 4) / Math.sqrt(3));
+    // console.log(a);
+    // console.log(lat, lon);
+    let b = (Math.sqrt(3) / 2) * a;
+    b /= 1000;
+    lat1 = lat - b * Math.cos(45);
+    lon1 = lon - b * Math.sin(45);
+
+    lat2 = lat + b * Math.cos(45);
+    lon2 = lon - b * Math.sin(45);
+
+    lat3 = lat + b * Math.cos(45);
+    lon3 = lon + b * Math.sin(45);
+
+    lat4 = lat - b * Math.cos(45);
+    lon4 = lon + b * Math.sin(45);
+
+    setLat1(lat1);
+    setLat2(lat2);
+    setLat3(lat3);
+    setLat4(lat4);
+    setLon1(lon1);
+    setLon2(lon2);
+    setLon3(lon3);
+    setLon4(lon4);
+    setLoading(false);
   };
   const fetchLocations = async () => {
     // const loggedInUser = localStorage.getItem("user");
@@ -256,6 +276,7 @@ const Home = () => {
       setLat(foundLocation.lat);
       lon_now = foundLocation.lon;
       setLon(foundLocation.lon);
+      // asyn function detected
     }
     console.log("afawd");
     const p = localStorage.getItem("polygon");
