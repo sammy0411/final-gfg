@@ -28,21 +28,13 @@ function Component({ profile, setProfile, ...props }) {
   // }
 
   const clickHandler = async () => {
-    const loggedInUser = localStorage.getItem("user");
-    if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
-      accesstoken = foundUser.token;
-      setName(foundUser.name);
-      setEmail(foundUser.email);
-      t1 = foundUser.name;
-      t2 = foundUser.email;
-    }
     if (!t1) return;
 
     // console.log(accesstoken);
     if (props.show) {
       setLoading(1);
       var accesstoken;
+      const loggedInUser = localStorage.getItem("user");
 
       console.log("I got clicked");
       // setLoading(true);
@@ -117,7 +109,7 @@ function Component({ profile, setProfile, ...props }) {
             onClick={clickHandler}
           >
             {" "}
-            {t1} {t2}
+            {name} {email}
           </span>
           <span style={{ color: "red", fontSize: "10px" }}>
             {" "}
