@@ -169,16 +169,22 @@ const Home = () => {
     val = JSON.stringify({
       polygon_id: id_now,
     });
-    let lat_now, lon_now;
-    const location = localStorage.getItem("latitudes");
-    if (location) {
-      const foundLocation = JSON.parse(location);
-      // console.log(foundLocation);
-      lat_now = foundLocation.lat;
-      setLat(foundLocation.lat);
-      lon_now = foundLocation.lon;
-      setLon(foundLocation.lon);
-      // asyn function detected
+    // let lat_now, lon_now;
+    // const location = localStorage.getItem("latitudes");
+    // if (location) {
+    //   const foundLocation = JSON.parse(location);
+    //   // console.log(foundLocation);
+    //   lat_now = foundLocation.lat;
+    //   setLat(foundLocation.lat);
+    //   lon_now = foundLocation.lon;
+    //   setLon(foundLocation.lon);
+    //   // asyn function detected
+    // }
+    try {
+      const d = await axios.post(s1, val, requestOptions);
+      console.log(d);
+    } catch (err) {
+      console.log(err);
     }
     let lat1, lon1, lat2, lon2, lat3, lon3, lat4, lon4;
     let a = Math.sqrt((1500 * 4) / Math.sqrt(3));
