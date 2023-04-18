@@ -408,6 +408,8 @@ function Profile() {
                   })
                 : ""}
             </div>
+
+            <button> Delete your account</button>
           </div>
         </div>
       </>
