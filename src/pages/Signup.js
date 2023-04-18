@@ -26,12 +26,13 @@ const Sign = (props) => {
   const [lon, setLon] = useState("");
   const [rem, setRem] = useState(0);
   const [address, setAddress] = useState();
+  const [phone, setPhone] = useState("");
   const fetchLocation = async () => {};
 
   const submitHandler = async () => {
     console.log("What");
     setLoading(true);
-    if (!name || !email || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword || !phone) {
       console.log("Error");
       return;
     }
@@ -48,7 +49,7 @@ const Sign = (props) => {
 
       const { data } = await axios.post(
         `${process.env.REACT_APP_BACKEND}/user`,
-        { name, email, password, lat, lon, address },
+        { name, email, password, phone, lat, lon, address },
         config
       );
       console.log("Registration successful");
@@ -68,85 +69,105 @@ const Sign = (props) => {
   } else {
     return (
       <div className="frst-div">
-      <button  className="but "
-      onClick={() => {
-        let s = 1;
-        setSignup(s);
-      }}
-    >
-      {" "}
-      Signup
-    </button>
-    <button className="but "
-      onClick={() => {
-        let s = 0;
-        setSignup(s);
-      }}
-    >
-      {" "}
-      Login
-    </button>
-    <br/><br/>
+        <button
+          className="but "
+          onClick={() => {
+            let s = 1;
+            setSignup(s);
+          }}
+        >
+          {" "}
+          Signup
+        </button>
+        <button
+          className="but "
+          onClick={() => {
+            let s = 0;
+            setSignup(s);
+          }}
+        >
+          {" "}
+          Login
+        </button>
+        <br />
+        <br />
 
-  <input
-    type="text"
-    placeholder=" Enter your name "
-    onChange={(e) => {
-      setName(e.target.value);
-    }}
-  ></input>
-  
-  <input
-    type="text"
-    placeholder=" Enter your email "
-    onChange={(e) => {
-      setEmail(e.target.value);
-    }}
-  ></input>
-  
-  <input
-  placeholder="  Enter your password  "
-    type={show ? "text" : "password"}
-    onChange={(e) => {
-      setPassword(e.target.value);
-    }}
-  ></input>
-  <button className="but"
-    onClick={() => {
-      setShow(!show);
-    }}
-  >
-    {" "}
-    {show ? "Hide" : "Show"}
-  </button>
+        <input
+          type="text"
+          placeholder=" Enter your name "
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        ></input>
 
-  <br/><br/>
-  
-  <input
-  placeholder="  Confirm your password  "
-    type={show2 ? "text" : "password"}
-    onChange={(e) => {
-      setConfirmPassword(e.target.value);
-    }}
-  ></input>
-  <button className="but"
-    onClick={() => {
-      setShow2(!show2);
-    }}
-  >
-    {" "}
-    {show2 ? "Hide" : "Show"}
-  </button>
-  <input placeholder="Enter your Complete Address"
+        <input
+          type="text"
+          placeholder=" Enter your email "
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        ></input>
+
+        <input
+          placeholder="  Enter your password  "
+          type={show ? "text" : "password"}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        ></input>
+        <button
+          className="but"
+          onClick={() => {
+            setShow(!show);
+          }}
+        >
+          {" "}
+          {show ? "Hide" : "Show"}
+        </button>
+
+        <br />
+        <br />
+
+        <input
+          placeholder="  Confirm your password  "
+          type={show2 ? "text" : "password"}
+          onChange={(e) => {
+            setConfirmPassword(e.target.value);
+          }}
+        ></input>
+        <button
+          className="but"
+          onClick={() => {
+            setShow2(!show2);
+          }}
+        >
+          {" "}
+          {show2 ? "Hide" : "Show"}
+        </button>
+        <input
+          placeholder="Enter your Complete Address"
           type="text"
           onChange={(e) => {
             setAddress(e.target.value);
-          }}></input>
-  <br/><br/>
-  <input type="submit" onClick={submitHandler}></input>
-</div>
-);
-}
+          }}
+        ></input>
+        <br />
+        <br />
+
+        <input
+          placeholder="Enter your Complete Address"
+          type="text"
+          onChange={(e) => {
+            setPhone(e.target.value);
+          }}
+        ></input>
+
+        <br />
+        <br />
+        <input type="submit" onClick={submitHandler}></input>
+      </div>
+    );
+  }
 };
 
 export default Sign;

@@ -5,7 +5,7 @@ import axios from "axios";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import Forms from "./Forms";
-import "./profile.css"
+import "./profile.css";
 
 // Implementing a new feature where if userData is not there if someone tries to navigate on someone else's profile show it
 function Profile() {
@@ -299,111 +299,117 @@ function Profile() {
   } else {
     return (
       <>
-      <Navbar profile={profile} setProfile={setProfile} show={0} />
-      <div className="profile-container">
-        <div className="profile-card">
-          
-          <p className="stat"><strong>Name</strong>  : {name} </p>
-          <p className="stat"><strong>Email </strong>: {email} </p>
-          <p className="stat"><strong>Phone</strong>: {phone}</p>
-          <p>
-            {" "}
-            What crops you are growing? Help other farmers in your area by
-            filling this form
-          </p>
-          <div className="forms
-          ">
-          <Forms 
-            form={form}
-            setForm={setForm}
-            Submit={0}
-            options={options}
-            setOptions={setOptions}
-          ></Forms>
+        <Navbar profile={profile} setProfile={setProfile} show={0} />
+        <div className="profile-container">
+          <div className="profile-card">
+            <p className="stat">
+              <strong>Name</strong> : {name}{" "}
+            </p>
+            <p className="stat">
+              <strong>Email </strong>: {email}{" "}
+            </p>
+            <p className="stat">
+              <strong>Phone</strong>: {phone}
+            </p>
+            <p>
+              {" "}
+              What crops you are growing? Help other farmers in your area by
+              filling this form
+            </p>
+            <div
+              className="forms
+          "
+            >
+              <Forms
+                form={form}
+                setForm={setForm}
+                Submit={0}
+                options={options}
+                setOptions={setOptions}
+              ></Forms>
+            </div>
           </div>
-        </div>
 
-       
-        <div className="friends">
-        <p> Notifications</p>
-        {typeof notif === "object"
-          ? notif.map((curr_val, curr_idx, arr) => {
-              let s = "/profile/";
-              s += curr_val.Name;
-              return (
-                <div>
-                  <Link to={s}>
-                    {" "}
-                    {curr_val.Name} {curr_val.Email}{" "}
-                  </Link>{" "}
-                  <button onClick={() => acceptHandler(curr_val.Email)}>
-                    {" "}
-                    ✅
-                  </button>
-                  <button onClick={() => denyHandler(curr_val.Email)}>
-                    {" "}
-                    ❌
-                  </button>
-                </div>
-              );
-            })
-          : ""}
-          <div>
-        <p> Friends</p>
-        {friends
-          ? friends.map((curr_val, curr_idx, arr) => {
-              let s = "/profile/";
-              s += curr_val.Name;
-              return (
-                <div>
-                  <Link to={s}>
-                    {" "}
-                    {curr_val.Name} {curr_val.Email}{" "}
-                  </Link>{" "}
-                </div>
-              );
-            })
-          : ""}
-          </div>
-           <div >
-          <p> People in your area</p>
-          {obj
-            ? obj.map((curr_val, curr_idx, arr) => {
-                if (curr_val.Name === name) return;
-                console.log(curr_val);
-                console.log(
-                  hashNotif[curr_val.Email],
-                  hashFriends[curr_val.Email]
-                );
-                if (hashNotif[curr_val.Email]) return;
-                if (hashFriends[curr_val.Email]) return;
-                let s = "/profile/";
-                s += curr_val.Name;
-                return (
-                  <div>
-                    <Link to={s}>
-                      {" "}
-                      {curr_val.Name} {curr_val.Email}{" "}
-                    </Link>{" "}
-                    {pending[curr_val.Email] ? (
-                      <button> Pending</button>
-                    ) : (
-                      <button className="addfriend"
-                        onClick={() => {
-                          clickHandler(curr_val.Email);
-                        }}
-                      >
-                        Add Friend
+          <div className="friends">
+            <p> Notifications</p>
+            {typeof notif === "object"
+              ? notif.map((curr_val, curr_idx, arr) => {
+                  let s = "/profile/";
+                  s += curr_val.Name;
+                  return (
+                    <div>
+                      <Link to={s}>
+                        {" "}
+                        {curr_val.Name} {curr_val.Email}{" "}
+                      </Link>{" "}
+                      <button onClick={() => acceptHandler(curr_val.Email)}>
+                        {" "}
+                        ✅
                       </button>
-                    )}
-                  </div>
-                );
-              })
-            : ""}
+                      <button onClick={() => denyHandler(curr_val.Email)}>
+                        {" "}
+                        ❌
+                      </button>
+                    </div>
+                  );
+                })
+              : ""}
+            <div>
+              <p> Friends</p>
+              {friends
+                ? friends.map((curr_val, curr_idx, arr) => {
+                    let s = "/profile/";
+                    s += curr_val.Name;
+                    return (
+                      <div>
+                        <Link to={s}>
+                          {" "}
+                          {curr_val.Name} {curr_val.Email}{" "}
+                        </Link>{" "}
+                      </div>
+                    );
+                  })
+                : ""}
+            </div>
+            <div>
+              <p> People in your area</p>
+              {obj
+                ? obj.map((curr_val, curr_idx, arr) => {
+                    if (curr_val.Name === name) return;
+                    console.log(curr_val);
+                    console.log(
+                      hashNotif[curr_val.Email],
+                      hashFriends[curr_val.Email]
+                    );
+                    if (hashNotif[curr_val.Email]) return;
+                    if (hashFriends[curr_val.Email]) return;
+                    let s = "/profile/";
+                    s += curr_val.Name;
+                    return (
+                      <div>
+                        <Link to={s}>
+                          {" "}
+                          {curr_val.Name} {curr_val.Email}{" "}
+                        </Link>{" "}
+                        {pending[curr_val.Email] ? (
+                          <button> Pending</button>
+                        ) : (
+                          <button
+                            className="addfriend"
+                            onClick={() => {
+                              clickHandler(curr_val.Email);
+                            }}
+                          >
+                            Add Friend
+                          </button>
+                        )}
+                      </div>
+                    );
+                  })
+                : ""}
+            </div>
+          </div>
         </div>
-      </div>
-      
-      </div>
       </>
     );
   }

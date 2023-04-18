@@ -8,7 +8,7 @@ const cropsconsider = require("../models/model3.js");
 const friendsconsider = require("../models/model4.js");
 
 const registerUser = AsyncHandler(async (req, res) => {
-  const { name, email, password, lat, lon, address } = req.body;
+  const { name, email, password, phone, lat, lon, address } = req.body;
   // console.log(lat, lon);
   if (!name || !email || !password) {
     res.status(400);
@@ -28,6 +28,7 @@ const registerUser = AsyncHandler(async (req, res) => {
     Name: req.body.name,
     Email: req.body.email,
     Password: req.body.password,
+    Phone: req.body.phone,
     Lat: lat,
     Lon: lon,
     Address: address,
