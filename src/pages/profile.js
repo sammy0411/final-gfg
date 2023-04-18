@@ -3,7 +3,7 @@ import { useGlobalContext } from "./context";
 import Navbar from "./Navbar";
 import axios from "axios";
 import Loading from "./Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Forms from "./Forms";
 import "./profile.css";
 
@@ -34,7 +34,7 @@ function Profile() {
       method: "post",
       url: s1,
       headers: { "Content-Type": "application/json" },
-      Authorization: `Bearer ${accesstoken}`,
+      // Authorization: `Bearer ${accesstoken}`,
     };
     let val = JSON.stringify({
       email: email,
@@ -44,6 +44,8 @@ function Profile() {
       const d = await axios.post(s1, val, requestOptions);
       // setAcc(!acc);
       setLoading(0);
+      localStorage.clear();
+      navigate("/");
     } catch (err) {
       console.log(err);
       setLoading(0);
