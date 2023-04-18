@@ -9,7 +9,7 @@ import { useGlobalContext } from "./context.js";
 import axios from "axios";
 import Loading from "./Loading.js";
 import "./FarmSection.css";
-import videos from "./videos/video-3.mp4";
+// import videos from "./videos/video-3.mp4";
 import Card from "./Card";
 import Footer from "./Footer.js";
 import "./form.css";
