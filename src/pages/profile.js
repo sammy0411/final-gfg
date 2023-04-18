@@ -25,6 +25,30 @@ function Profile() {
   const [friends, setFriends] = useState([]);
   const [hashFriends, setHashFriends] = useState([]);
   const [acc, setAcc] = useState(1);
+  const deleteHandler = async () => {
+    // name,email
+    let s1 = `${process.env.REACT_APP_BACKEND}/user/delete`;
+    // console.log(polygon_id);
+    setLoading(1);
+    let requestOptions = {
+      method: "post",
+      url: s1,
+      headers: { "Content-Type": "application/json" },
+      Authorization: `Bearer ${accesstoken}`,
+    };
+    let val = JSON.stringify({
+      email: email,
+    });
+    console.log(val);
+    try {
+      const d = await axios.post(s1, val, requestOptions);
+      // setAcc(!acc);
+      setLoading(0);
+    } catch (err) {
+      console.log(err);
+      setLoading(0);
+    }
+  };
   const acceptHandler = async (friend_email) => {
     // update to show accepted
     console.log("accepted");
@@ -408,8 +432,9 @@ function Profile() {
                   })
                 : ""}
             </div>
-
-            <button> Delete your account</button>
+            <br></br>
+            <br></br>
+            <button onClick={deleteHandler}> Delete your account</button>
           </div>
         </div>
       </>

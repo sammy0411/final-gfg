@@ -20,6 +20,7 @@ const {
   AcceptUser,
   acceptList,
   declineList,
+  deleteUser,
 } = require("../controllers/userControllers");
 // const jwt = require();
 const router = express.Router();
@@ -43,6 +44,7 @@ router.post("/notif", AuthenticateUser, notificationList);
 router.post("/acceptList", AuthenticateUser, AcceptUser);
 router.post("/accept", AuthenticateUser, acceptList);
 router.post("/decline", AuthenticateUser, declineList);
+router.post("/delete", AuthenticateUser, deleteUser);
 
 function AuthenticateUser(req, res, next) {
   next();
