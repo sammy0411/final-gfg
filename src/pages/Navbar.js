@@ -108,7 +108,7 @@ function Component({ profile, setProfile, ...props }) {
             onClick={clickHandler}
           >
             {" "}
-            {t1} {t2}
+            {name} {email}
           </span>
           <span style={{ color: "red", fontSize: "10px" }}>
             {" "}
