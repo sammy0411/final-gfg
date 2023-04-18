@@ -155,7 +155,7 @@ const Sign = (props) => {
         <br />
 
         <input
-          placeholder="Enter your Complete Address"
+          placeholder="Enter your phone"
           type="text"
           onChange={(e) => {
             setPhone(e.target.value);
