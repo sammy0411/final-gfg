@@ -180,29 +180,30 @@ const Home = () => {
     //   setLon(foundLocation.lon);
     //   // asyn function detected
     // }
+    let lat1, lon1, lat2, lon2, lat3, lon3, lat4, lon4;
     try {
       const d = await axios.post(s1, val, requestOptions);
-      console.log(d);
+      console.log("Parent coordinates", d);
     } catch (err) {
       console.log(err);
     }
-    let lat1, lon1, lat2, lon2, lat3, lon3, lat4, lon4;
+    // let lat1, lon1, lat2, lon2, lat3, lon3, lat4, lon4;
     let a = Math.sqrt((1500 * 4) / Math.sqrt(3));
     // console.log(a);
     // console.log(lat, lon);
     let b = (Math.sqrt(3) / 2) * a;
     b /= 1000;
-    lat1 = lat_now - b * Math.cos(45);
-    lon1 = lon_now - b * Math.sin(45);
+    // lat1 = lat_now - b * Math.cos(45);
+    // lon1 = lon_now - b * Math.sin(45);
 
-    lat2 = lat_now + b * Math.cos(45);
-    lon2 = lon_now - b * Math.sin(45);
+    // lat2 = lat_now + b * Math.cos(45);
+    // lon2 = lon_now - b * Math.sin(45);
 
-    lat3 = lat_now + b * Math.cos(45);
-    lon3 = lon_now + b * Math.sin(45);
+    // lat3 = lat_now + b * Math.cos(45);
+    // lon3 = lon_now + b * Math.sin(45);
 
-    lat4 = lat_now - b * Math.cos(45);
-    lon4 = lon_now + b * Math.sin(45);
+    // lat4 = lat_now - b * Math.cos(45);
+    // lon4 = lon_now + b * Math.sin(45);
 
     setLat1(lat1);
     setLat2(lat2);
