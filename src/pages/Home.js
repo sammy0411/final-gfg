@@ -8,8 +8,8 @@ import { Route, Link } from "react-router-dom";
 import { useGlobalContext } from "./context.js";
 import axios from "axios";
 import Loading from "./Loading.js";
-import './FarmSection.css';
-import videos from './videos/video-3.mp4'
+import "./FarmSection.css";
+import videos from "./videos/video-3.mp4";
 import Card from "./Card";
 import Footer from "./Footer.js";
 import "./form.css";
@@ -36,22 +36,22 @@ const Home = () => {
   const [lon2, setLon2] = useState(0);
   const [lon3, setLon3] = useState(0);
   const [lon4, setLon4] = useState(0);
-  const [button,setButton] = useState(0)
+  const [button, setButton] = useState(0);
   let id = useId();
   // let found = false;
   const fetchLocation = async () => {
-    let lat_now, lon_now,name,email,accesstoken;
-    
+    let lat_now, lon_now, name, email, accesstoken;
+
     let lat11, lat12, lat13, lat14, lon11, lon12, lon13, lon14;
     const loggedInUser = localStorage.getItem("user");
-      // var accesstoken;
-      // let name,email;
-      if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser);
-        accesstoken = foundUser.token;
-        name = foundUser.name;
-        email = foundUser.email;
-      }
+    // var accesstoken;
+    // let name,email;
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser);
+      accesstoken = foundUser.token;
+      name = foundUser.name;
+      email = foundUser.email;
+    }
     if (!email) {
       // if ("geolocation" in navigator) {
       //   navigator.geolocation.getCurrentPosition(
@@ -79,14 +79,14 @@ const Home = () => {
       //   console.log("geolocation is not enabled on this browser");
       // }
       setLat(25.5908);
-            setLon(85.1348);
-            localStorage.setItem(
-              "latitudes",
-              JSON.stringify({
-                lat: 25.5908,
-                lon: 85.1348,
-              })
-            );
+      setLon(85.1348);
+      localStorage.setItem(
+        "latitudes",
+        JSON.stringify({
+          lat: 25.5908,
+          lon: 85.1348,
+        })
+      );
     } else {
       const loggedInUser = localStorage.getItem("user");
       // var accesstoken;
@@ -246,7 +246,7 @@ const Home = () => {
         lon3: lon13,
         lon4: lon14,
       });
-      console.log("polydon data ",val2);
+      console.log("polydon data ", val2);
       try {
         const d2 = await axios.post(s2, val2, requestOptions);
         localStorage.setItem(
@@ -294,34 +294,42 @@ const Home = () => {
           ></link>
           <Navbar profile={profile} setProfile={setProfile} show={1} />
           {/* <p> This is a farmer app</p> */}
-          <div className='farm-container'>
-            <video src={videos} autoPlay loop muted />
+          <div className="farm-container">
             <h1>AGRO VISION</h1>
-            <p className="agro-para">Work smarter and not harder with our real time dashboard</p>
+            <p className="agro-para">
+              Work smarter and not harder with our real time dashboard
+            </p>
           </div>
           <div className="form-div">
-          {/* <p> This is a farmer app</p> */}
-          <div className="btns">
-          <button
-            style={{width: "250px"}}
-            onClick={() => {
-              setToggle(1);
-            }}
-            className="btn-1 but"
-          >
-            Get Started
-          </button>
-          <button style={{width: "250px"}} className="btn-2 but" onClick = {()=>{
-            setToggle(2);
-          }}> Livestock </button>
-          </div>
+            {/* <p> This is a farmer app</p> */}
+            <div className="btns">
+              <button
+                style={{ width: "250px" }}
+                onClick={() => {
+                  setToggle(1);
+                }}
+                className="btn-1 but"
+              >
+                Get Started
+              </button>
+              <button
+                style={{ width: "250px" }}
+                className="btn-2 but"
+                onClick={() => {
+                  setToggle(2);
+                }}
+              >
+                {" "}
+                Livestock{" "}
+              </button>
+            </div>
 
-          {toggle===1 ? <Form form={form} setForm={setForm} /> : null}
-          {toggle===2 ? <Develop></Develop> : ""}
-        </div>
-        <div className="first">
-             <Card />
-             <Footer />
+            {toggle === 1 ? <Form form={form} setForm={setForm} /> : null}
+            {toggle === 2 ? <Develop></Develop> : ""}
+          </div>
+          <div className="first">
+            <Card />
+            <Footer />
           </div>
         </div>
       );
