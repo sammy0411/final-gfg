@@ -20,7 +20,7 @@ function Component({ profile, setProfile, ...props }) {
   };
 
   const clickHandler = async () => {
-    if (!t1) return;
+    if (!name) return;
 
     // console.log(accesstoken);
     if (props.show) {
