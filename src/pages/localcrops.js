@@ -75,7 +75,7 @@ const Home = () => {
       console.log(d);
       if (d.data !== "Failed") setFarmers(d.data);
       else {
-        console.log("adfoiweaog");
+        // console.log("adfoiweaog");
         setFarmers([]);
       }
       console.log("Hellooo", d.data);
@@ -214,7 +214,7 @@ const Home = () => {
     //   polygon_id: id_now,
     // });
     // console.log("The value is ", val);
-     // try {
+    // try {
     //   const d = await axios.post(s1, val, requestOptions);
     //   console.log("Locations", d);
     //   setLat1(d.data.lat1);
@@ -284,48 +284,61 @@ const Home = () => {
       fetchOptions();
       // console.log("hi");
       fetchLocations();
-  // console.log("Locations executed");
-} else {
-  setLoading(false);
-}
-}, [polygon_id]);
+      // console.log("Locations executed");
+    } else {
+      setLoading(false);
+    }
+  }, [polygon_id]);
 
-if (loading) return <Loading />;
-return (
-<div>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap"
-    rel="stylesheet"
-  ></link>
+  if (loading) return <Loading />;
+  return (
+    <div>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap"
+        rel="stylesheet"
+      ></link>
 
-  <Navbar profile={profile} setProfile={setProfile} show={1} />
-  <h1 style={{marginBottom:"50px",marginTop:"50px",color:"black"}}>Select the crops you want to explore in your area</h1>
-  <button style={{margin:"5px",padding:"5px",borderRadius:"5px"}} onClick={() => fetchFarmers()}> Farmers </button>
+      <Navbar profile={profile} setProfile={setProfile} show={1} />
+      <h1 style={{ marginBottom: "50px", marginTop: "50px", color: "black" }}>
+        Select the crops you want to explore in your area
+      </h1>
+      <button
+        style={{ margin: "5px", padding: "5px", borderRadius: "5px" }}
+        onClick={() => fetchFarmers()}
+      >
+        {" "}
+        Farmers{" "}
+      </button>
 
-  {name ? (
-    options ? (
-      data.map((curr_val, curr_idx, arr) => {
-        return (
-          <button
-            style={{borderStyle:"none",margin:"5px",padding:"5px",borderRadius:"5px"}}
-            key={curr_val.name}
-            onClick={() => clickHandler(curr_val.name)}
-          >
-            {" "}
-            {curr_val.name}
-          </button>
-        );
-      })
-    ) : (
-      ""
-      )
+      {name ? (
+        options ? (
+          data.map((curr_val, curr_idx, arr) => {
+            return (
+              <button
+                style={{
+                  borderStyle: "none",
+                  margin: "5px",
+                  padding: "5px",
+                  borderRadius: "5px",
+                }}
+                key={curr_val.name}
+                onClick={() => clickHandler(curr_val.name)}
+              >
+                {" "}
+                {curr_val.name}
+              </button>
+            );
+          })
+        ) : (
+          ""
+        )
       ) : (
         <p> Signup to access </p>
       )}
       <MapContainer
-      style={{margin:"100px"}}
+        style={{ margin: "100px" }}
         center={[lat, lon]}
         zoom={13}
         scrollWheelZoom={false}
@@ -409,8 +422,8 @@ return (
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
       </MapContainer>
-      
-      <Footer/>
+
+      <Footer />
     </div>
   );
 };
