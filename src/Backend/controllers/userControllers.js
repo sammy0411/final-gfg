@@ -384,6 +384,7 @@ const latitudeList = AsyncHandler(async (req, res) => {
     }
   }
   polygon_id = polygon_id.substring(x, polygon_id.length);
+  console.log(polygon_id);
   console.log("The parent polygon is being searched");
   try {
     let h = await polygon.findOne({ Email: polygon_id });
