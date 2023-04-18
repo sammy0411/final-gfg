@@ -381,7 +381,7 @@ const Home = () => {
         )}
 
         {"My marker"}
-        {farmers.length
+        {typeof farmers === "object"
           ? farmers.map((curr_val, curr_idx, arr) => {
               console.log(curr_val);
               console.log(parseFloat(curr_val.Lat), parseFloat(curr_val.Lon));

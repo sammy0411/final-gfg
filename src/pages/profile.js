@@ -25,6 +25,7 @@ function Profile() {
   const [friends, setFriends] = useState([]);
   const [hashFriends, setHashFriends] = useState([]);
   const [acc, setAcc] = useState(1);
+  const navigate = useNavigate();
   const deleteHandler = async () => {
     // name,email
     let s1 = `${process.env.REACT_APP_BACKEND}/user/delete`;

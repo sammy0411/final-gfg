@@ -566,6 +566,19 @@ const deleteUser = AsyncHandler(async (req, res) => {
   // delete the request
   try {
     await user.deleteOne({ Email: email });
+    await polygon.deleteOne({ Email: email });
+    await cropsconsider.deleteOne({ Email: email });
+    try {
+      await friendsconsider.deleteMany({ Email1: email });
+    } catch (err) {
+      console.log(err);
+    }
+
+    try {
+      await friendsconsider.deleteMany({ Email2: email });
+    } catch (err) {
+      console.log(err);
+    }
     // because let's say i got the request now I wish to delete
     res.json("Success deletion");
   } catch (err) {
