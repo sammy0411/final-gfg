@@ -20,8 +20,6 @@ function Component({ profile, setProfile, ...props }) {
   };
 
   const clickHandler = async () => {
-    if (!name) return;
-
     // console.log(accesstoken);
     if (props.show) {
       setLoading(1);
