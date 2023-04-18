@@ -186,17 +186,17 @@ const Home = () => {
     // console.log(lat, lon);
     let b = (Math.sqrt(3) / 2) * a;
     b /= 1000;
-    lat1 = lat - b * Math.cos(45);
-    lon1 = lon - b * Math.sin(45);
+    lat1 = lat_now - b * Math.cos(45);
+    lon1 = lon_now - b * Math.sin(45);
 
-    lat2 = lat + b * Math.cos(45);
-    lon2 = lon - b * Math.sin(45);
+    lat2 = lat_now + b * Math.cos(45);
+    lon2 = lon_now - b * Math.sin(45);
 
-    lat3 = lat + b * Math.cos(45);
-    lon3 = lon + b * Math.sin(45);
+    lat3 = lat_now + b * Math.cos(45);
+    lon3 = lon_now + b * Math.sin(45);
 
-    lat4 = lat - b * Math.cos(45);
-    lon4 = lon + b * Math.sin(45);
+    lat4 = lat_now - b * Math.cos(45);
+    lon4 = lon_now + b * Math.sin(45);
 
     setLat1(lat1);
     setLat2(lat2);
