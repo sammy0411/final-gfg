@@ -437,7 +437,7 @@ function Profile() {
             </div>
             <br></br>
             <br></br>
-            <button onClick={deleteHandler}> Delete your account</button>
+            <button style={{backgroundColor:"#064635",borderRadius: "5px",color: "#fff",padding: "5px 15px"}} onClick={deleteHandler}> Delete your account</button>
           </div>
         </div>
       </>
