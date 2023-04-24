@@ -255,9 +255,14 @@ const farmersList = AsyncHandler(async (req, res) => {
 
 const cropsList = AsyncHandler(async (req, res) => {
   const { name, email, crops } = req.body;
+  const h1 = -1;
   // console.log(crops);
   try {
-    const h1 = await cropsconsider.find({ Email: email });
+    try {
+      h1 = await cropsconsider.find({ Email: email });
+    } catch (err) {
+      return;
+    }
     // console.log(h1);
     if (h1.length) {
       await cropsconsider.updateOne({ Email: email }, { Crops: crops });
