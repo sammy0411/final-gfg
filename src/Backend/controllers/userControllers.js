@@ -257,26 +257,16 @@ const cropsList = AsyncHandler(async (req, res) => {
   const { name, email, crops } = req.body;
   // console.log(crops);
   try {
-    try {
-      try {
-        const h1 = await cropsconsider.find({ Email: email });
-      } catch (err) {
-        await cropsconsider.create({ Name: name, Email: email, Crops: crops });
-        res.json("Crops just created");
-      }
-      console.log(h1);
-      if (h1.length) {
-        await cropsconsider.updateOne({ Email: email }, { Crops: crops });
-        res.json("Crops updated");
-      } else {
-        await cropsconsider.create({ Name: name, Email: email, Crops: crops });
-      }
-    } catch (err) {
-      res.json("Failed");
-    }
+    const h1 = await cropsconsider.find({ Email: email });
     // console.log(h1);
+    if (h1.length) {
+      await cropsconsider.updateOne({ Email: email }, { Crops: crops });
+      res.json("Crops updated");
+    } else {
+      await cropsconsider.create({ Name: name, Email: email, Crops: crops });
+    }
   } catch (err) {
-    res.json("Failed");
+    res.json("Crops not Created");
   }
   // res.json("Hi");
 });
