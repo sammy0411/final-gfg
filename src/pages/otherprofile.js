@@ -37,11 +37,11 @@ function Profile() {
         `${process.env.REACT_APP_BACKEND}/user/profile/${name2}`
       );
 
-      setLoading(false);
+      // setLoading(false);
       setData(data);
     } catch (error) {
       console.log(error);
-      setLoading(false);
+      // setLoading(false);
     }
 
     let acceptLink = `${process.env.REACT_APP_BACKEND}/user/acceptList`;
@@ -85,16 +85,28 @@ function Profile() {
     return <Loading />;
   } else {
     return (
-      
       <div>
         <Navbar profile={profile} setProfile={setProfile} show={1} />
         <p className="others">
-        <p> <span className="">Name :</span> {lc_data.name} </p>
-        <p> <span className="">Email :</span>{lc_data.email} </p>
-        {friends[lc_data.email] ? <p> <span className="">Phone:</span> {lc_data.phone} </p> : ""}
+          <p>
+            {" "}
+            <span className="">Name :</span> {lc_data.name}{" "}
+          </p>
+          <p>
+            {" "}
+            <span className="">Email :</span>
+            {lc_data.email}{" "}
+          </p>
+          {friends[lc_data.email] ? (
+            <p>
+              {" "}
+              <span className="">Phone:</span> {lc_data.phone}{" "}
+            </p>
+          ) : (
+            ""
+          )}
         </p>
       </div>
-
     );
   }
 }
