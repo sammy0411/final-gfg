@@ -261,7 +261,7 @@ function Profile() {
       arr.forEach((curr_val) => (f[curr_val.Email] = 1));
       setHashNotif(f);
       // console.log()
-      setLoading(false);
+      // setLoading(false);
     } catch (err) {
       console.log(err);
     }
