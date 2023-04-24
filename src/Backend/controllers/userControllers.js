@@ -257,7 +257,11 @@ const cropsList = AsyncHandler(async (req, res) => {
   const { name, email, crops } = req.body;
   // console.log(crops);
   try {
-    const h1 = await cropsconsider.find({ Email: email });
+    try {
+      const h1 = await cropsconsider.find({ Email: email });
+    } catch (err) {
+      res.json("Failed");
+    }
     // console.log(h1);
     if (h1.length) {
       await cropsconsider.updateOne({ Email: email }, { Crops: crops });
