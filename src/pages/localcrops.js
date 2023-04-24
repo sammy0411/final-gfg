@@ -169,15 +169,6 @@ const Home = () => {
     val = JSON.stringify({
       polygon_id: id_now,
     });
-
-    try {
-      const d = await axios.post(s1, val, requestOptions);
-      console.log(d);
-      setOptions(d.data.options);
-      console.log("Hellooo", d.data);
-    } catch (err) {
-      console.log(err);
-    }
     let lat_now, lon_now;
     const location = localStorage.getItem("latitudes");
     if (location) {
@@ -343,7 +334,7 @@ const Home = () => {
       </button>
 
       {name ? (
-        options.length ? (
+        options ? (
           data.map((curr_val, curr_idx, arr) => {
             return (
               <button
