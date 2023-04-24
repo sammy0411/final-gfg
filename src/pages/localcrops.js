@@ -343,7 +343,7 @@ const Home = () => {
       </button>
 
       {name ? (
-        options ? (
+        options.length ? (
           data.map((curr_val, curr_idx, arr) => {
             return (
               <button
