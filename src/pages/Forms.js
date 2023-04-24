@@ -5,15 +5,14 @@ import Data2 from "./datacrops.js";
 import { useGlobalContext } from "./context.js";
 import Loading from "./Loading.js";
 import axios from "axios";
-import "./form.css"
+import "./form.css";
 
 // import './App.css';
 
 function Forms({ form, setForm, Submit, options, setOptions }) {
-
   const [value, setValue] = useState(null);
   const { req, setReq } = useGlobalContext();
-  const {polygon_id} = useGlobalContext();
+  const { polygon_id } = useGlobalContext();
   const { goptions, setOptions2 } = useGlobalContext();
   const [loading, setLoading] = useState(0);
   const { name, email } = useGlobalContext();
@@ -30,7 +29,10 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
     const requestOptions = {
       method: "post",
       url: s1,
-      headers: { "Content-Type": "application/json",Authorization:`Bearer${accesstoken}` },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer${accesstoken}`,
+      },
     };
 
     const val = JSON.stringify({
@@ -60,7 +62,10 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
     const requestOptions = {
       method: "post",
       url: s1,
-      headers: { "Content-Type": "application/json",Authorization:`Bearer${accesstoken}` },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer${accesstoken}`,
+      },
     };
 
     const val = JSON.stringify({
@@ -76,8 +81,9 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
       setLoading(0);
     } catch (err) {
       console.log(err);
+      setLoading(0);
     }
-    setLoading(false);
+    // setLoading(false);
 
     // setOptions3(val);
   };
@@ -86,8 +92,7 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
     if (Submit === 0) {
       setLoading(1);
       fetchOptions();
-    }
-    else setLoading(0);
+    } else setLoading(0);
   }, []);
 
   if (loading) {
@@ -96,7 +101,6 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
   if (form == 0) {
     return (
       <div className="temp">
-        
         <form>
           <label htmlFor="h1"> What type of crop do you wish to grow? </label>
           {/* <input type="text" id="h1" /> */}
@@ -134,7 +138,6 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
             })}
           </select>
           <br></br>
-          
         </form>
 
         <div className="selected">
@@ -156,26 +159,20 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
                   {" "}
                   Delete{" "}
                 </button>
-                
               </div>
-
-              
             );
           })}
         </div>
 
         <div>
-        <input
+          <input
             type="submit"
             onClick={(e) => {
-             
               if (Submit) {
                 e.preventDefault();
                 setForm(2);
                 // setReq(1);
                 console.log(polygon_id);
-                
-                
               } else {
                 // calling an api here in order to create a cropUser tuples
                 setLoading(true);
@@ -184,12 +181,14 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
             }}
           />
         </div>
-        
+
         {Submit
           ? ""
-          : typeof showOptions ==="object" ? showOptions.map((curr_val, curr_idx, arr) => {
+          : typeof showOptions === "object"
+          ? showOptions.map((curr_val, curr_idx, arr) => {
               return <p style={{ color: "orange" }}> {curr_val}</p>;
-            }):""}
+            })
+          : ""}
       </div>
     );
   }
