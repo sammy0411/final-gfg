@@ -255,13 +255,12 @@ const farmersList = AsyncHandler(async (req, res) => {
 
 const cropsList = AsyncHandler(async (req, res) => {
   const { name, email, crops } = req.body;
-  const h1 = -1;
   // console.log(crops);
   try {
     try {
-      h1 = await cropsconsider.find({ Email: email });
+      const h1 = await cropsconsider.find({ Email: email });
     } catch (err) {
-      return;
+      res.json("Failed");
     }
     // console.log(h1);
     if (h1.length) {
