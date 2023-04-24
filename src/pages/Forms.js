@@ -34,7 +34,7 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
         Authorization: `Bearer${accesstoken}`,
       },
     };
-
+    console.log(options);
     const val = JSON.stringify({
       name: name,
       email: email,
