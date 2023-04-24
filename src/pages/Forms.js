@@ -44,10 +44,11 @@ function Forms({ form, setForm, Submit, options, setOptions }) {
     try {
       const d = await axios.post(s1, val, requestOptions);
       console.log(d);
+      setLoading(false);
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
-    setLoading(false);
     setOptions3(options);
   };
 
