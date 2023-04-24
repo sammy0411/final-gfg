@@ -261,7 +261,8 @@ const cropsList = AsyncHandler(async (req, res) => {
       try {
         const h1 = await cropsconsider.find({ Email: email });
       } catch (err) {
-        res.json("Failed");
+        await cropsconsider.create({ Name: name, Email: email, Crops: crops });
+        res.json("Crops just created");
       }
       console.log(h1);
       if (h1.length) {
@@ -275,8 +276,7 @@ const cropsList = AsyncHandler(async (req, res) => {
     }
     // console.log(h1);
   } catch (err) {
-    await cropsconsider.create({ Name: name, Email: email, Crops: crops });
-    res.json("Crops just created");
+    res.json("Failed");
   }
   // res.json("Hi");
 });
