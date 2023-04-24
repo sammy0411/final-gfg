@@ -270,7 +270,8 @@ const cropsList = AsyncHandler(async (req, res) => {
       await cropsconsider.create({ Name: name, Email: email, Crops: crops });
     }
   } catch (err) {
-    res.json("Crops not Created");
+    await cropsconsider.create({ Name: name, Email: email, Crops: crops });
+    res.json("Crops just created");
   }
   // res.json("Hi");
 });
