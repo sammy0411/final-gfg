@@ -18,6 +18,8 @@ Made extra restriction on the basis of
 
 In both signup and login , useNavigate() from react-router-dom is taken
 
+<img width="905" alt="Screenshot 2023-04-25 190820" src="https://user-images.githubusercontent.com/78720314/234295051-58adcf7c-42cb-45fa-8d71-17381bfb4a63.png">
+
 # Home 
 Guest Login : If the user is not signed in the profile feature would not be available to him.
 Also if you are guest it will show signup to access when you access resource in home. You can check the
