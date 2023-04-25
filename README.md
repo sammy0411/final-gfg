@@ -18,9 +18,10 @@ Made extra restriction on the basis of
 
 In both signup and login , useNavigate() from react-router-dom is taken
 
+# Home 
+
 <img width="905" alt="Screenshot 2023-04-25 190820" src="https://user-images.githubusercontent.com/78720314/234295051-58adcf7c-42cb-45fa-8d71-17381bfb4a63.png">
 
-# Home 
 Guest Login : If the user is not signed in the profile feature would not be available to him.
 Also if you are guest it will show signup to access when you access resource in home. You can check the
 optimal crops in your region. 
@@ -37,18 +38,26 @@ the farmers under one polygon.
 The key idea is the soil temperature is almost constant across a small polygon which will make our data
 more reliable and foster relevant advices through the medium of farmers phone.
 
+
+<img width="882" alt="Screenshot 2023-04-25 190851" src="https://user-images.githubusercontent.com/78720314/234297088-09b777ad-b5b6-42d6-892d-32b81ce0f6d5.png">
+
+
 ## Navbar 
 A person will be able to navigate to different pages using react-router-dom. A person will
 be able to navigate to his own profile using this. Logout , login feature implemented. Local storage 
 added so as to store the data when a user reloads.
 
+
 # Weather forecast 
+<img width="862" alt="Screenshot 2023-04-25 191415" src="https://user-images.githubusercontent.com/78720314/234297979-ce144a2f-e0bc-4dee-a173-8aec0bdbd5bd.png">
+
 The weather data will be available to both guests and the logged in users.
 
 # Local crops
 The farmer will be able to see all the farmers in the polygon. And on the popup of the
 map the person navigates to the profile. This is implemented with the help of react-leaflet and also
 using useNavigate from react-router-dom.
+<img width="920" alt="Screenshot 2023-04-25 191300" src="https://user-images.githubusercontent.com/78720314/234297589-694d303d-2eca-4c94-9bfc-75da59ec12a1.png">
 
 
 In order to incentivize the farmers to input what crops they are growing , the crop button are only 
@@ -63,6 +72,9 @@ a user is friend then they will be able to see their phone number. In order to r
 time , hashing is done using the email key as it is unique.
 
 # Stores 
+
+<img width="887" alt="Screenshot 2023-04-25 191342" src="https://user-images.githubusercontent.com/78720314/234297876-88954081-ae79-4998-bc3f-880f1a027d92.png">
+
 The farmer will be able to see the stores nearby which is done using an api call. The parameters
 which were used in the api call is latitude and longitude. The map is shown using react-leaflet and
 openStreet Map. This will help the farmers to assess how far the stores are. Also the farmers will
@@ -72,6 +84,9 @@ be able to see which agricultural supplies to buy from.
 Name , email ,phone of the current user is visible. If a user is friend then the user will
 be able to see their phone number. The friends feature is implemented using the friendsSchema in 
 mongoDB. A form is done to incentivize the farmers as mentioned above. The friends feature include:
+
+<img width="852" alt="Screenshot 2023-04-25 191228" src="https://user-images.githubusercontent.com/78720314/234297396-ba2ad501-a07e-4fb0-a1ce-b532e420ddd6.png">
+
 1) People around you (Querying the database to find the users on basis of polygon id)
 2) Notifications (If a person sends you a friend request)
 3) Friends (This includes the friends made)
@@ -79,6 +94,9 @@ The basic feature of implementing friends is to secure the farmers data and to s
 each other if they are friend.
 
 # Other Profile 
+
+<img width="887" alt="Screenshot 2023-04-25 191325" src="https://user-images.githubusercontent.com/78720314/234297770-7e4ede0e-59dc-49c0-8ca3-722df3f56f27.png">
+
 If a user navigates to other profile either from friends or from map in local crops. 
 A user will be able to see the phone only if the user is a friend. To speed up we have used hashing 
 of the friends email. 
