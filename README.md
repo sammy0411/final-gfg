@@ -7,6 +7,8 @@ Technologies used : Google Cloud AMD instance , MongoDB with google cloud , Node
 Made a user schema for this. Made extra restriction on the basis of 
 1) If name ,email , password or phone is missing
 2) If password is not the same as confirm Password field
+<img width="552" alt="Screenshot 2023-04-26 162107" src="https://user-images.githubusercontent.com/78720314/234554088-2d195ebc-0244-4f92-b0d9-c0110ae42256.png">
+
 Data is stored in the user schema. Address is taken from the user to provide the latitude and 
 longitude for our further api calls. The more accurate the address is the more accurate the location is.
 
@@ -14,6 +16,8 @@ longitude for our further api calls. The more accurate the address is the more a
 Check the password with respect to the email provided.
 Made extra restriction on the basis of 
 1) If name ,email is missing
+
+<img width="559" alt="image" src="https://user-images.githubusercontent.com/78720314/234553860-c6ee08c0-24bc-4231-880f-aeef6bbb3e6c.png">
 
 
 In both signup and login , useNavigate() from react-router-dom is taken
